@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHONGWE CUSTOMS MAGAZINE 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --carbon: #1a1a1a;
+            --racing-red: #e10600;
+            --liquid-gold: #ffd700;
+            --titanium: #878681;
+            --midnight-blue: #003366;
+            --neon-blue: #00f0ff;
+        }
+        
+        body {
+            font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+            background-color: var(--carbon);
+            color: white;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @font-face {
+            font-family: 'Bebas Neue';
+            src: url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        }
+        
+        .magazine-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: radial-gradient(circle at center, #2a2a2a 0%, #1a1a1a 100%);
+            border: 8px double var(--liquid-gold);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .magazine-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .magazine-header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(225,6,0,0.2) 0%, rgba(0,0,0,0.8) 50%, rgba(0,240,255,0.2) 100%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--titanium);
+        }
+        
+        .magazine-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--racing-red), var(--liquid-gold), var(--neon-blue), transparent);
+        }
+        
+        .magazine-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5.5rem;
+            font-weight: 400;
+            letter-spacing: 5px;
+            margin: 0;
+            background: linear-gradient(to right, var(--liquid-gold), var(--neon-blue), var(--racing-red));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            line-height: 1;
+        }
+        
+        .magazine-subtitle {
+            font-size: 1.8rem;
+            color: var(--titanium);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-top: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .magazine-year {
+            display: inline-block;
+            background: var(--racing-red);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+            letter-spacing: 2px;
+            border: 1px solid var(--liquid-gold);
+        }
+        
+        .section {
+            padding: 2.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.8rem;
+            color: var(--liquid-gold);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--racing-red), transparent);
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            color: var(--neon-blue);
+        }
+        
+        .celebrity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .celebrity-card {
+            background: linear-gradient(145deg, #252525, #1e1e1e);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+        }
+        
+        .celebrity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(225, 6, 0, 0.2);
+            border-color: var(--racing-red);
+        }
+        
+        .celebrity-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--racing-red);
+        }
+        
+        .celebrity-info {
+            padding: 1.5rem;
+        }
+        
+        .celebrity-name {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .celebrity-car {
+            color: var(--titanium);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .celebrity-desc {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .tip-card {
+            background: rgba(0, 51, 102, 0.2);
+            border-left: 4px solid var(--neon-blue);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tip-card:hover {
+            transform: translateX(10px);
+            background: rgba(0, 51, 102, 0.3);
+        }
+        
+        .tip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), transparent);
+            pointer-events: none;
+        }
+        
+        .tip-title {
+            color: var(--liquid-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tip-title i {
+            margin-right: 10px;
+            color: var(--racing-red);
+        }
+        
+        .builds-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .build-card {
+            background: linear-gradient(145deg, #1e1e1e, #252525);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .build-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(225, 6, 0, 0.2);
+            border-color: var(--neon-blue);
+        }
+        
+        .build-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--racing-red);
+        }
+        
+        .build-info {
+            padding: 1.5rem;
+        }
+        
+        .build-name {
+            font-size: 1.5rem;
+            color: var(--liquid-gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .build-specs {
+            color: var(--titanium);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .trend-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .trend-card:hover {
+            background: rgba(40, 40, 40, 0.7);
+            border-color: var(--neon-blue);
+            transform: translateY(-5px);
+        }
+        
+        .trend-icon {
+            font-size: 2.5rem;
+            color: var(--liquid-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .trend-name {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .trend-desc {
+            color: var(--titanium);
+            font-size: 0.9rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+        
+        .quote-container {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.2), rgba(225, 6, 0, 0.1));
+            border-left: 4px solid var(--liquid-gold);
+            position: relative;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .quote-container::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 5rem;
+            color: rgba(255, 215, 0, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .quote-text {
+            font-size: 1.2rem;
+            color: white;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quote-author {
+            color: var(--neon-blue);
+            margin-top: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .quote-author::before {
+            content: '-';
+            margin-right: 10px;
+        }
+        
+        .download-section {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(225, 6, 0, 0.1), rgba(0, 240, 255, 0.1));
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .download-title {
+            font-size: 1.8rem;
+            color: var(--liquid-gold);
+            margin-bottom: 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+        
+        .download-btn {
+            background: linear-gradient(to right, var(--racing-red), var(--midnight-blue));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--midnight-blue), var(--racing-red));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        
+        .download-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 240, 255, 0.3);
+        }
+        
+        .download-btn i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .magazine-title {
+                font-size: 3.5rem;
+            }
+            
+            .magazine-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .magazine-title {
+                font-size: 2.5rem;
+            }
+            
+            .celebrity-grid, .builds-container, .trends-grid, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine-container">
+        <header class="magazine-header">
+            <h1 class="magazine-title">SHONGWE CUSTOMS</h1>
+            <p class="magazine-subtitle">THE ULTIMATE CAR CULTURE EXPERIENCE</p>
+            <div class="magazine-year">2025 EDITION</div>
+        </header>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-star"></i> Cover Story: Celebrities and Their Custom Rides</h2>
+            
+            <div class="celebrity-grid">
+                <div class="celebrity-card">
+                    <img src="https://i.imgur.com/JqYeZvT.jpg" alt="Cassper Nyovest" class="celebrity-image">
+                    <div class="celebrity-info">
+                        <h3 class="celebrity-name">Cassper Nyovest</h3>
+                        <p class="celebrity-car">Mercedes-AMG G63</p>
+                        <p class="celebrity-desc">Matte black wrap with gold trimmings, 24" forged wheels, diamond-stitched interior, and custom sound system tuned by Dr. Dre's audio engineers.</p>
+                    </div>
+                </div>
+                
+                <div class="celebrity-card">
+                    <img src="https://i.imgur.com/pLQxXGk.jpg" alt="Black Coffee" class="celebrity-image">
+                    <div class="celebrity-info">
+                        <h3 class="celebrity-name">Black Coffee</h3>
+                        <p class="celebrity-car">Rolls Royce Ghost</p>
+                        <p class="celebrity-desc">Exclusive Nappa leatherwork with music-inspired RGB lighting that syncs to his tracks. Features a built-in espresso machine and DJ booth console.</p>
+                    </div>
+                </div>
+                
+                <div class="celebrity-card">
+                    <img src="https://i.imgur.com/QzWZJjF.jpg" alt="Uncle Waffles" class="celebrity-image">
+                    <div class="celebrity-info">
+                        <h3 class="celebrity-name">Uncle Waffles</h3>
+                        <p class="celebrity-car">BMW i8</p>
+                        <p class="celebrity-desc">LED underglow that dances to amapiano beats, signature butterfly doors with hydraulic system, and custom waffle-textured interior panels.</p>
+                    </div>
+                </div>
+                
+                <div class="celebrity-card">
+                    <img src="https://i.imgur.com/vVpQYhx.jpg" alt="A-Reece" class="celebrity-image">
+                    <div class="celebrity-info">
+                        <h3 class="celebrity-name">A-Reece</h3>
+                        <p class="celebrity-car">Dodge Challenger SRT</p>
+                        <p class="celebrity-desc">20% ceramic tinted windows, performance exhaust system, "Reece" badging, and a trunk-mounted recording studio for on-the-go sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Pro Tips from the Garage</h2>
+            
+            <div class="tips-container">
+                <div class="tip-card">
+                    <h4 class="tip-title"><i class="fas fa-shield-alt"></i> Ceramic Coating</h4>
+                    <p>The ultimate protection for your paint job that lasts 2-5 years with proper maintenance. Self-cleaning properties keep your car looking showroom fresh.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h4 class="tip-title"><i class="fas fa-tachometer-alt"></i> Performance Balance</h4>
+                    <p>Always match engine mods with upgraded brakes and suspension. A 500hp car with stock brakes is an accident waiting to happen.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h4 class="tip-title"><i class="fas fa-tire"></i> Tire Investment</h4>
+                    <p>Premium tires can improve handling, braking, and acceleration more than any single performance mod. Don't cheap out where rubber meets road.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h4 class="tip-title"><i class="fas fa-lightbulb"></i> Lighting Personality</h4>
+                    <p>Custom RGB interior lighting controlled via smartphone adds personal flair to night drives. Choose colors that match your mood or music.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Top Builds of the Year</h2>
+            
+            <div class="builds-container">
+                <div class="build-card">
+                    <img src="https://i.imgur.com/5XZwWqB.jpg" alt="Lamborghini Urus Widebody" class="build-image">
+                    <div class="build-info">
+                        <h4 class="build-name">Lamborghini Urus Widebody</h4>
+                        <p class="build-specs">Custom matte grey wrap, 23" forged wheels, full carbon fiber body kit, 800hp performance package with ECU tune and exhaust.</p>
+                    </div>
+                </div>
+                
+                <div class="build-card">
+                    <img src="https://i.imgur.com/8KmJtN6.jpg" alt="BMW M4 Liberty Walk" class="build-image">
+                    <div class="build-info">
+                        <h4 class="build-name">BMW M4 Liberty Walk</h4>
+                        <p class="build-specs">Aggressive widebody kit, air suspension with 3" drop, titanium exhaust with valve control, custom alcantara interior.</p>
+                    </div>
+                </div>
+                
+                <div class="build-card">
+                    <img src="https://i.imgur.com/3JQZ1Yj.jpg" alt="Toyota Hilux Off-Road" class="build-image">
+                    <div class="build-info">
+                        <h4 class="build-name">Toyota Hilux Off-Road</h4>
+                        <p class="build-specs">6" lifted suspension, ARB snorkel, full underbody armor, LED light bars, winch system, and custom bed storage solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="build-card">
+                    <img src="https://i.imgur.com/7nJjYQz.jpg" alt="VW Golf 8 GTI Midnight" class="build-image">
+                    <div class="build-info">
+                        <h4 class="build-name">VW Golf 8 GTI Midnight</h4>
+                        <p class="build-specs">Gloss black finish, red Brembo calipers, custom starlight headliner with 500 fiber optic lights, stage 2 performance tune.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Behind the Scenes</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--racing-red);">
+                    <h3 style="color: var(--liquid-gold); margin-top: 0; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">3D Modeling</h3>
+                    <p style="color: var(--titanium);">Virtual previews of all mods before physical work begins using cutting-edge automotive design software.</p>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--neon-blue);">
+                    <h3 style="color: var(--liquid-gold); margin-top: 0; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">Material Quality</h3>
+                    <p style="color: var(--titanium);">Only premium-grade wraps from 3M and Avery Dennison, with genuine leather and carbon fiber materials.</p>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--liquid-gold);">
+                    <h3 style="color: var(--liquid-gold); margin-top: 0; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">Seat Partnership</h3>
+                    <p style="color: var(--titanium);">Exclusive Recaro seats with custom embroidery and heating/cooling functions tailored to each client.</p>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--racing-red);">
+                    <h3 style="color: var(--liquid-gold); margin-top: 0; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">Paint Process</h3>
+                    <p style="color: var(--titanium);">7-stage paint correction and ceramic coating process that creates a mirror finish protected for years.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> Trends to Watch</h2>
+            
+            <div class="trends-grid">
+                <div class="trend-card">
+                    <div class="trend-icon"><i class="fas fa-bolt"></i></div>
+                    <h4 class="trend-name">Electric Customs</h4>
+                    <p class="trend-desc">Teslas with color-shifting wraps and performance battery mods pushing 1000hp+</p>
+                </div>
+                
+                <div class="trend-card">
+                    <div class="trend-icon"><i class="fas fa-car-side"></i></div>
+                    <h4 class="trend-name">Hydraulic Systems</h4>
+                    <p class="trend-desc">Old-school bounce meets modern computerized control systems</p>
+                </div>
+                
+                <div class="trend-card">
+                    <div class="trend-icon"><i class="fas fa-robot"></i></div>
+                    <h4 class="trend-name">AI Dashboards</h4>
+                    <p class="trend-desc">Voice-controlled vehicle systems with personality and learning capabilities</p>
+                </div>
+                
+                <div class="trend-card">
+                    <div class="trend-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4 class="trend-name">Glow-Ups</h4>
+                    <p class="trend-desc">Fiber optic lighting integrated into body panels and trim pieces</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-camera"></i> Community Gallery</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/5XZwWqB.jpg" alt="Custom VW Polo" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/8KmJtN6.jpg" alt="Modified BMW" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/3JQZ1Yj.jpg" alt="Custom Interior" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/7nJjYQz.jpg" alt="Performance Build" class="gallery-image">
+                </div>
+            </div>
+            
+            <div class="quote-container">
+                <p class="quote-text">"My VW Polo looks like a beast now! The attention to detail is incredible. Shongwe Customs transformed my ride completely!"</p>
+                <p class="quote-author">@ridewithjay</p>
+            </div>
+            
+            <div class="quote-container">
+                <p class="quote-text">"The wraps, the wheels... elite service from start to finish! Shongwe Customs forever! 💯"</p>
+                <p class="quote-author">@mpumalanga_mamba</p>
+            </div>
+        </section>
+        
+        <section class="download-section">
+            <h3 class="download-title">GET YOUR COPY TODAY</h3>
+            <button class="download-btn" id="downloadPdf">
+                <i class="fas fa-download"></i> Download Full Magazine
+            </button>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('downloadPdf').addEventListener('click', async function() {
+            const btn = this;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing PDF...';
+            btn.disabled = true;
+            
+            // Create a clone of the content
+            const element = document.querySelector('.magazine-container');
+            const clone = element.cloneNode(true);
+            
+            // Remove problematic elements
+            clone.querySelectorAll('*').forEach(el => {
+                if (window.getComputedStyle(el).position === 'fixed') {
+                    el.style.position = 'absolute';
+                }
+            });
+            
+            // Remove the download button from the clone
+            const downloadBtn = clone.querySelector('.download-btn');
+            if (downloadBtn) downloadBtn.remove();
+            
+            // Temporarily add the clone to the document
+            clone.style.position = 'absolute';
+            clone.style.left = '-9999px';
+            document.body.appendChild(clone);
+            
+            // Configure PDF options
+            const opt = {
+                margin: 0,
+                filename: 'Shongwe_Customs_Magazine_2025.pdf',
+                image: { 
+                    type: 'jpeg', 
+                    quality: 1 
+                },
+                html2canvas: { 
+                    scale: 1,
+                    logging: true,
+                    useCORS: true,
+                    allowTaint: true,
+                    scrollX: 0,
+                    scrollY: 0,
+                    windowWidth: document.documentElement.scrollWidth,
+                    windowHeight: document.documentElement.scrollHeight
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait'
+                }
+            };
+            
+            try {
+                // Generate PDF
+                await html2pdf().set(opt).from(clone).save();
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> Download Complete!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-download"></i> Download Full Magazine';
+                    btn.disabled = false;
+                }, 2000);
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error Generating PDF';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-download"></i> Try Again';
+                    btn.disabled = false;
+                }, 2000);
+            } finally {
+                // Remove the clone
+                document.body.removeChild(clone);
+            }
+        });
+    </script>
+</body>
+</html>
